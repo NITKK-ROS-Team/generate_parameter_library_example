@@ -1,0 +1,89 @@
+# https://github.com/PickNikRobotics/generate_parameter_library/blob/main/examples/cpp/src/parameters.yaml
+parameter_test:
+# ================== Test basic types ==================
+  data_string: {
+    type: string,
+    default_value: "string_value",
+    description: "test code generation for string",
+  }
+# ================== Test map (Struct) ==================
+  data_double: {
+    type: string_array,
+    default_value: ["a", "b", "c"],
+    description: "test code generation for string array",
+  }
+  test_map:
+    __map_data_double:
+      data_double_0: {
+        type: double,
+        default_value: .NAN,
+        description: "data double 0"
+      }
+      data_double_1: {
+        type: double,
+        default_value: 0.5,
+        description: "data double 1"
+      }
+      data_double_2: {
+        type: double,
+        default_value: .NAN,
+        description: "data double 2"
+      }
+
+# ================== Test fixed size ==================
+  fixed_types:
+    fixed_string: {
+      type: string_fixed_25,
+      default_value: "string_value",
+      description: "test code generation for fixed sized string",
+    }
+    fixed_double_array: {
+      type: double_array_fixed_10,
+      default_value: [1.0, 2.3, 4.0 ,5.4, 3.3],
+      description: "test code generation for fixed sized array",
+    }
+
+# ================== Test validation ==================
+  size_comparison:
+    lt_eq_fifteen: {
+      type: int,
+      default_value: 1,
+      description: "should be a number less than or equal to 15",
+      validation: {
+        lt_eq<>: [ 15 ],
+      }
+    }
+    gt_fifteen: {
+      type: int,
+      default_value: 16,
+      description: "should be a number greater than 15",
+      validation: {
+        gt<>: [ 15 ],
+      }
+    }
+    one_number: {
+      type: int,
+      default_value: 100,
+      read_only: true,
+      validation: {
+        bounds<>: [ 0, 1024 ]
+      }
+    }
+
+# ================== Test read only ==================
+  root_read:
+    read_only_int: {
+      type: int,
+      default_value: 1,
+      read_only: true,
+    }
+    read_only_int_array: {
+      type: int_array,
+      default_value: [3,4,5],
+      read_only: true,
+    }
+    three_numbers_of_five: {
+      type: int_array_fixed_5,
+      default_value: [3,3,3],
+      read_only: true,
+    }
