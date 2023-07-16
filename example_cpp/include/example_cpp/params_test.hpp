@@ -24,10 +24,6 @@ class ParameterExample : public rclcpp::Node
 {
 public:
     ParameterExample(const rclcpp::NodeOptions &);
-    void onInit();
-
-private:
-    rclcpp::TimerBase::SharedPtr timer;
 protected:
     std::shared_ptr<parameter_test::ParamListener> param_listener_;
     parameter_test::Params params_;

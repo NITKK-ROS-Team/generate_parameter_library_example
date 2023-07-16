@@ -17,14 +17,6 @@
 ParameterExample::ParameterExample(const rclcpp::NodeOptions &options)
     : Node("params_test", options)
 {
-    using namespace std::chrono_literals; // NOLINT
-    this->timer = this->create_wall_timer(0s,
-        std::bind(&ParameterExample::onInit, this));
-}
-
-void ParameterExample::onInit()
-{
-    this->timer->cancel();
     this->param_listener_ = std::make_shared<parameter_test::ParamListener>(
         this->get_node_parameters_interface());
     this->params_ = param_listener_->get_params();
@@ -86,7 +78,7 @@ void ParameterExample::onInit()
         RCLCPP_INFO(this->get_logger(), "root_read.three_numbers_of_five[%d]: %ld", count++, d);
     }
 
-    rclcpp::shutdown();
+    RCLCPP_INFO(this->get_logger(), "Press Ctrl-C to exit.");
 }
 
 
