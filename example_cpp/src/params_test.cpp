@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "example_cpp/value_limit.hpp"
+#include "example_cpp/params_test.hpp"
 
 ParameterExample::ParameterExample(const rclcpp::NodeOptions &options)
-    : Node("parameter_example", options)
+    : Node("params_test", options)
 {
     using namespace std::chrono_literals; // NOLINT
     this->timer = this->create_wall_timer(0s,

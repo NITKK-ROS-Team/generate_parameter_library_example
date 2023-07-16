@@ -15,8 +15,8 @@ find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
 
-ament_auto_add_executable(value_limit_node
-  src/value_limit.cpp
+ament_auto_add_executable(params_test_node
+  src/params_test.cpp
 )
 
 if(BUILD_TESTING)
