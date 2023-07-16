@@ -32,6 +32,10 @@ void ParameterExample::onInit()
 // basic --------------------
     RCLCPP_INFO(this->get_logger(), "data_string: %s", this->params_.data_string.c_str());
 
+    RCLCPP_INFO(this->get_logger(), "camera_params.width: %ld", this->params_.camera_params.width);
+    RCLCPP_INFO(this->get_logger(), "camera_params.height: %ld", this->params_.camera_params.height);
+    RCLCPP_INFO(this->get_logger(), "camera_params.fps: %ld", this->params_.camera_params.fps);
+
 // map --------------------
     this->params_.test_map.data_double_map["b"].data_double_1 = 0.0;
 

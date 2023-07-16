@@ -6,6 +6,32 @@ parameter_test:
     default_value: "string_value",
     description: "test code generation for string",
   }
+
+  camera_params:
+    width: {
+      type: int,
+      default_value: 1280,
+      description: "test code generation for int",
+      validation: {
+        one_of<>: [[1280, 960, 848, 640, 424, 352, 320]]
+      }
+    }
+    height: {
+      type: int,
+      default_value: 720,
+      description: "test code generation for int",
+      validation: {
+        one_of<>: [[720, 540, 480, 360, 288, 240, 180]]
+      }
+    }
+    fps: {
+      type: int,
+      default_value: 30,
+      description: "test code generation for int",
+      validation: {
+        one_of<>: [[30, 60, 90, 120]]
+      }
+    }
 # ================== Test map (Struct) ==================
   data_double: {
     type: string_array,
