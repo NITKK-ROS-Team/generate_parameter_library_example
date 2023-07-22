@@ -10,8 +10,12 @@ ament_auto_find_build_dependencies()
 
 find_package(generate_parameter_library REQUIRED)
 
-generate_parameter_library(${PROJECT_NAME}
-  src/parameter_test.yaml
+generate_parameter_library(parameter_test_0
+  src/parameter_test_0.yaml
+)
+
+generate_parameter_library(parameter_test_1
+  src/parameter_test_1.yaml
 )
 
 if(BUILD_TESTING)

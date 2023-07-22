@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "example_cpp/params_test.hpp"
+#include "example_cpp/params_test_0.hpp"
 
 ParameterExample::ParameterExample(const rclcpp::NodeOptions &options)
     : Node("params_test", options)
@@ -66,19 +66,16 @@ ParameterExample::ParameterExample(const rclcpp::NodeOptions &options)
         this->params_.size_comparison.one_number);
 
 // int_array --------------------
-    RCLCPP_INFO(this->get_logger(), "root_read.read_only_int: %ld", this->params_.root_read.read_only_int);
+    RCLCPP_INFO(this->get_logger(), "read_only.data_int: %ld", this->params_.read_only.data_int);
 
-    count = 0;
-    for (auto d : this->params_.root_read.read_only_int_array) {
-        RCLCPP_INFO(this->get_logger(), "root_read.int_array[%d]: %ld", count++, d);
-    }
-
-    count = 0;
-    for (auto d : this->params_.root_read.three_numbers_of_five) {
-        RCLCPP_INFO(this->get_logger(), "root_read.three_numbers_of_five[%d]: %ld", count++, d);
-    }
-
-    RCLCPP_INFO(this->get_logger(), "Press Ctrl-C to exit.");
+    this->timer_ = this->create_wall_timer(
+        std::chrono::milliseconds(1000),
+        [this]() -> void {
+            // get data_int, read_only_int
+            this->params_ = param_listener_->get_params();
+            RCLCPP_INFO(this->get_logger(), "data_int: %ld", this->params_.data_int);
+            RCLCPP_INFO(this->get_logger(), "read_only.data_int: %ld", this->params_.read_only.data_int);
+        });
 }
 
 

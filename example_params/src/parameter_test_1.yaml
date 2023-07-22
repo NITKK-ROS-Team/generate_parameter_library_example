@@ -1,0 +1,6 @@
+parameter_test:
+  data_int: {
+    type: int,
+    default_value: 1,
+    description: "test code generation for int",
+  }

@@ -17,7 +17,7 @@
 
 #include <chrono>
 
-#include "example_params/example_params.hpp"
+#include "parameter_test_0/parameter_test_0.hpp"
 #include <rclcpp/rclcpp.hpp>
 
 class ParameterExample : public rclcpp::Node
@@ -27,4 +27,5 @@ public:
 protected:
     std::shared_ptr<parameter_test::ParamListener> param_listener_;
     parameter_test::Params params_;
+    rclcpp::TimerBase::SharedPtr timer_;
 };
