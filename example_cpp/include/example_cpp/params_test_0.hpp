@@ -17,7 +17,7 @@
 
 #include <chrono>
 
-#include "parameter_test_0/parameter_test_0.hpp"
+#include "param_0/param_0.hpp"
 #include <rclcpp/rclcpp.hpp>
 
 class ParameterExample : public rclcpp::Node
