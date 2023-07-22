@@ -44,6 +44,16 @@ generate_parameter_libraryは以下のリポジトリにあります。
 
 <br>
 
+## インストール
+
+humbleの場合、以下の手順でインストール可能です。
+
+```bash
+sudo apt install ros-humble-generate-parameter-library
+```
+
+<br>
+
 ## パラメータの簡単な定義（YAMLの書き方）
 
 パラメータの定義は、全てyamlで定義されていて、generate_parameter_libraryではyamlファイルを独立したパッケージとして作成して、そのパラメータがほしいrospkg（Node）でインクルードします。
